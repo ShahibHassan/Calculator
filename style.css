@@ -1,40 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 body {
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-
+    align-items: center;
+    justify-content: center;
+    background-color: #EDEADE;
+    
 }
 
-.calculator-container {
+.calculator {
+    background-color: #c3195d;
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    padding: 80px 60px 100px 60px;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+.display {
+    background-color: #45171d;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 15px;
+    width: 415px;
+    overflow-wrap: break-word;
+}
+
+p {
+    position: relative;
+    color: white;
+    text-align: right;
+    height: autopx;
+    font-size: 40px;
+}
+
+#eqLine{
+    padding: 20px 20px 10px 0px;
+    opacity: 0.4;
+}
+
+#output {
+    padding: 10px 20px 20px 0px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    text-decoration:overline underline;
+}
+
+.btns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    background-color: purple;
-    padding: 40px; 
-    border-radius: 20px
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 60px;
 }
 
 button {
+    position: relative;
     cursor: pointer;
+    padding: 10px;
+    font-size: 50px;
+    background-color: #fecea8;
     border: none;
-    font-size: 40px;
+    border-radius: 10px;
     width: 100px;
-    height: 100px;
-    border-radius: 1px;
-}
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;}
 
 button:hover {
-    background-color: darkgray;
-    color: white;
+    background-color:#ff847c;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-result {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    background-color: rgb(12, 12, 12) ;
-    color: white;
-    text-align: end;
+#clear {
     font-size: 40px;
 }
+
+#clear {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    width: 415px;
+}
+
