@@ -85,6 +85,7 @@ digits.forEach((digit) => {
     } else if (
       !Number.isInteger(parseFloat(digit.textContent)) &&
       digit.textContent != "=" &&
+      digit.textContent != "Clear" &&
       op == ""
     ) {
       op = digit.textContent;
@@ -93,4 +94,54 @@ digits.forEach((digit) => {
     }
     //check to see if the clicked button is an operator
   });
+});
+
+const operators = document.querySelectorAll(".operation");
+operators.forEach((operator) => {
+  operator.addEventListener("click", () => {
+    if (firstOperand !== "" && secondOperand !== "") {
+      output.textContent = "";
+      output.textContent = `${operate(
+        parseFloat(firstOperand),
+        parseFloat(secondOperand),
+        op
+      )}`;
+      eqLine.textContent = `${firstOperand} ${op} ${secondOperand} =`;
+      firstOperand = operate(
+        parseFloat(firstOperand),
+        parseFloat(secondOperand),
+        op
+      );
+      secondOperand = "";
+      console.log(firstOperand);
+      op = operator.textContent;
+    }
+  });
+});
+
+const sum = document.querySelector("#sum");
+sum.addEventListener("click", () => {
+  console.log("sum clicked");
+  if (secondOperand == "") {
+    output.textContent = firstOperand;
+  } else {
+    let answer = operate(
+      parseFloat(firstOperand),
+      parseFloat(secondOperand),
+      op
+    );
+    //console log varaibles
+    console.log(
+      `first: ${firstOperand} | second: ${secondOperand} | operator: ${op}`
+    );
+    //output Answer to equation
+    output.textContent = `${answer}`;
+    // add eqaution to eqLine
+    eqLine.textContent = `${firstOperand} ${op} ${secondOperand} =`;
+    // make firstOperand = eq output
+    firstOperand = output.textContent;
+    // make secondOperand and operator = ''
+    secondOperand = "";
+    op = "";
+  }
 });
